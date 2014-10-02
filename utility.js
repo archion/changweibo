@@ -14,7 +14,7 @@ for (i=0;i<link.length;i++){
 //add back to top button
 var af=document.createElement("link");
 af.rel="stylesheet";
-af.href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css";
+af.href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css";
 document.head.appendChild(af);
 var tp=document.createElement("span");
 tp.className="fa fa-chevron-circle-up fa-2x top";

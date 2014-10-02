@@ -64,6 +64,21 @@ ta.addEventListener("keyup",function(e){
 	});
 	MathJax.Hub.Typeset()
 },false)
+ta.addEventListener("focus",function(e){
+	//console.log(e.target)
+	var target=e.target;
+	//target.style.height=(target.scrollHeight-parseInt(window.getComputedStyle(target,null)["paddingTop"])-parseInt(window.getComputedStyle(target,null)["paddingBottom"]))+"px";
+	document.querySelector('#output').style.border="solid 1px rgb(131, 131, 131)";
+	document.querySelector('#output').style.background="";
+	document.querySelector('#output').style.paddingLeft="10px";
+	document.querySelector('#output').style.paddingRight="10px";
+	document.querySelector('#output').style.maxWidth="400px";
+	document.querySelector('#output').innerHTML = marked(document.querySelector("textarea.auto").value+"\n-------\n本文由`archion.github.io/changweibo`在线生成");
+	$('pre code').each(function(i, block) {
+		hljs.highlightBlock(block);
+	});
+	MathJax.Hub.Typeset()
+},false)
 var bt=document.querySelector("#gn");
 bt.addEventListener("mousedown",function(e){
 	document.querySelector('#output').style.border="none";
@@ -81,3 +96,4 @@ bt.addEventListener("mousedown",function(e){
 			}
 			);
 },false)
+ta.focus();

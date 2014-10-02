@@ -54,7 +54,7 @@ div#gn:hover i{
 	border: solid 1px rgb(131, 131, 131);
 	top: 70px;
 	left: 41%;
-	width: 400px;
+	max-width: 400px;
 	margin: 0px;
 	padding: 0px 10px 0px 10px;
 }

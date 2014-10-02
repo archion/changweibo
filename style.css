@@ -42,7 +42,7 @@ div#gn:hover i{
 	word-break: normal;
 	position: relative;
 	border: solid 1px rgb(131, 131, 131);
-	top: 60px;
+	top: 70px;
 	left: 41%;
 	max-width: 400px;
 	height: 100%;
@@ -54,7 +54,7 @@ div.clear{
 }
 article img{
 	display: block;
-	max-width: 350px;
+	max-width: 90%;
 	margin: auto;
 }
 blockquote{
@@ -73,4 +73,7 @@ blockquote p::before{
 	position: relative;
 	top: 3px;
 	left: -10px;
+}
+code{
+	background: #fdf6e3;
 }

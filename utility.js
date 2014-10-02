@@ -80,7 +80,7 @@ ta.addEventListener("focus",function(e){
 	MathJax.Hub.Typeset()
 },false)
 var bt=document.querySelector("#gn");
-bt.addEventListener("mousedown",function(e){
+bt.addEventListener("click",function(e){
 	document.querySelector('#output').style.border="none";
 	html2canvas(document.querySelector('#output'),
 			{
@@ -95,5 +95,12 @@ bt.addEventListener("mousedown",function(e){
 				taintTest: false,
 			}
 			);
+},false)
+ta.addEventListener("dragover", function(e) {
+	e.preventDefault();
+},false)
+ta.addEventListener("drop", function(e) {
+	e.preventDefault();
+	ta.value=ta.value.substring(0,ta.selectionStart)+window.URL.createObjectURL(e.dataTransfer.files[0])+ta.value.substring(ta.selectionEnd);
 },false)
 ta.focus();

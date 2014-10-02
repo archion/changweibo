@@ -82,12 +82,12 @@ ta.addEventListener("focus",function(e){
 var bt=document.querySelector("#gn");
 bt.addEventListener("click",function(e){
 	document.querySelector('#output').style.border="none";
+	document.querySelector('#output').style.background="white";
 	html2canvas(document.querySelector('#output'),
 			{
 				onrendered: function(c){
 					document.querySelector('#output').innerHTML='';
 					document.querySelector('#output').appendChild(c);
-					document.querySelector('#output').style.background="white";
 					document.querySelector('#output').style.padding="0px";
 					document.querySelector('#output').style.width="420px";
 					document.querySelector('#tip').style.visibility="visible";

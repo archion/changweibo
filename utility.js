@@ -106,5 +106,5 @@ ta.addEventListener("drop", function(e) {
 	e.preventDefault();
 	ta.value=ta.value.substring(0,ta.selectionStart)+window.URL.createObjectURL(e.dataTransfer.files[0])+ta.value.substring(ta.selectionEnd);
 },false)
-ta.focus();
+document.querySelector("textarea").focus()
 

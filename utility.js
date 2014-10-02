@@ -57,7 +57,7 @@ ta.addEventListener("keyup",function(e){
 	document.querySelector('#output').style.background="";
 	document.querySelector('#output').style.paddingLeft="10px";
 	document.querySelector('#output').style.paddingRight="10px";
-	document.querySelector('#output').style.maxWidth="400px";
+	document.querySelector('#output').style.width="400px";
 	document.querySelector('#output').innerHTML = marked(document.querySelector("textarea.auto").value+"\n\n--------\n<p style='font-size: 0.7em'>本文由 archion.github.io/changweibo 在线生成<p>");
 	$('pre code').each(function(i, block) {
 		hljs.highlightBlock(block);
@@ -72,12 +72,12 @@ ta.addEventListener("focus",function(e){
 	document.querySelector('#output').style.background="";
 	document.querySelector('#output').style.paddingLeft="10px";
 	document.querySelector('#output').style.paddingRight="10px";
-	document.querySelector('#output').style.maxWidth="400px";
+	document.querySelector('#output').style.width="400px";
 	document.querySelector('#output').innerHTML = marked(document.querySelector("textarea.auto").value+"\n\n--------\n<p style='font-size: 0.7em'>本文由 archion.github.io/changweibo 在线生成<p>");
 	$('pre code').each(function(i, block) {
 		hljs.highlightBlock(block);
 	});
-	MathJax.Hub.Typeset()
+	MathJax.Hub.Typeset();
 },false)
 var bt=document.querySelector("#gn");
 bt.addEventListener("click",function(e){
@@ -89,7 +89,10 @@ bt.addEventListener("click",function(e){
 					document.querySelector('#output').appendChild(c);
 					document.querySelector('#output').style.background="white";
 					document.querySelector('#output').style.padding="0px";
-					document.querySelector('#output').style.maxWidth="420px";
+					document.querySelector('#output').style.width="420px";
+					document.querySelector('#tip').style.visibility="visible";
+					document.querySelector('#tip').style.opacity="0.9";
+					setTimeout(function(){document.querySelector('#tip').style.opacity="0";document.querySelector('#tip').style.visibility="hidden";},2000);
 				},
 				allowTaint: true, 
 				taintTest: false,
@@ -104,3 +107,4 @@ ta.addEventListener("drop", function(e) {
 	ta.value=ta.value.substring(0,ta.selectionStart)+window.URL.createObjectURL(e.dataTransfer.files[0])+ta.value.substring(ta.selectionEnd);
 },false)
 ta.focus();
+

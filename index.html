@@ -12,6 +12,8 @@
 	<script src="html2canvas.js"></script>
 	<script src="marked.js"></script>
 	<link rel="stylesheet" type="text/css" href="style.css">
+	<script src="jquery-ui.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="jquery-ui.min.css">
 	<link rel="stylesheet" type="text/css" href="highlight/solarized_light.css">
 	<script src="highlight.pack.js" ></script>
 	<script>hljs.initHighlightingOnLoad();</script>
@@ -75,10 +77,13 @@ __加粗__, *斜体*，~~删除~~
 单元格内容  | 单元格内容
 		</textarea>
 		<div id="gn">
-			<i class="fa fa-angle-double-right fa-4x"></i>
+			<i class="fa fa-angle-double-right fa-4x center"></i>
 		</div>
 	</div>
-	<article id="output"></article>
+	<article id="output" class="resizable"></article>
+	<div id="tip">
+		已转换为图片，请右击另存为保存！
+	</div>
 	<script src="utility.js" ></script>
 </body>
 </html>

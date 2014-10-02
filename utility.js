@@ -58,7 +58,7 @@ ta.addEventListener("keyup",function(e){
 	document.querySelector('#output').style.paddingLeft="10px";
 	document.querySelector('#output').style.paddingRight="10px";
 	document.querySelector('#output').style.maxWidth="400px";
-	document.querySelector('#output').innerHTML = marked(document.querySelector("textarea.auto").value+"\n-------\n本文由`archion.github.io/changweibo`在线生成");
+	document.querySelector('#output').innerHTML = marked(document.querySelector("textarea.auto").value+"\n\n--------\n<p style='font-size: 0.5em'>本文由 archion.github.io/changweibo 在线生成<p>");
 	$('pre code').each(function(i, block) {
 		hljs.highlightBlock(block);
 	});
@@ -73,7 +73,7 @@ ta.addEventListener("focus",function(e){
 	document.querySelector('#output').style.paddingLeft="10px";
 	document.querySelector('#output').style.paddingRight="10px";
 	document.querySelector('#output').style.maxWidth="400px";
-	document.querySelector('#output').innerHTML = marked(document.querySelector("textarea.auto").value+"\n-------\n本文由`archion.github.io/changweibo`在线生成");
+	document.querySelector('#output').innerHTML = marked(document.querySelector("textarea.auto").value+"\n\n--------\n<p style='font-size: 0.5em'>本文由 archion.github.io/changweibo 在线生成<p>");
 	$('pre code').each(function(i, block) {
 		hljs.highlightBlock(block);
 	});

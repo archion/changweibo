@@ -8,7 +8,7 @@ function update(e){
 	}else{
 		value="'"+value+"'";
 	}
-	document.styleSheets[0].insertRule("#output::before{ content: "+value+"!important;}",0);
+	document.styleSheets[0].insertRule("#output::before{ content: "+value+"!important;}",document.styleSheets[0].cssRules.length);
 	var output=document.querySelector('#output');
 	output.style.border="solid 1px rgb(131, 131, 131)";
 	output.style.background="";

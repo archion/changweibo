@@ -1,4 +1,6 @@
-body{
+html, body{
+	position: relative;
+	height: 100%;
 	background-color: #eee;
 }
 h1 {
@@ -29,7 +31,6 @@ textarea{
 	resize: none;
 	/*height: 700px;*/
 	height: 100%;
-	box-shadow: 0px 0px 11px gray;
 }
 div#gn{
 	height: 100%;
@@ -51,7 +52,7 @@ div#gn:hover i{
 #output{
 	word-wrap: break-word; 
 	word-break: normal;
-	position: absolute;
+	position: relative;
 	overflow: hidden;
 	border: solid 1px rgb(131, 131, 131);
 	top: 70px;
@@ -80,10 +81,10 @@ blockquote p{
 blockquote p::before{
 	content: "\201C";
 	color: #bbb;
-	font-size: 3em;
+	font-size: 2em;
 	position: relative;
 	top: 3px;
-	left: -10px;
+	left: -5px;
 }
 code{
 	background: #fdf6e3;
@@ -103,7 +104,7 @@ code{
 	opacity:0;
 	transition:visibility 0s linear 0.5s,opacity 0.5s linear;
 }
-#output::before {
+#output::before{
     content: "";
 	text-align: center;
 	font-size: 5em;
@@ -114,7 +115,6 @@ code{
     left: 0;
     width: 100%;
     opacity : 0.1;
-    z-index: 2;
 	transform: rotate(-60deg);
 }
 #control{
@@ -122,11 +122,22 @@ code{
 	overflow: hidden;
 	background: white;
 	border: solid 1px rgb(131, 131, 131);
-	box-shadow: 0px 0px 11px gray;
 	top: 70px;
-	right: 10%;
+	right: 20px;
 	width: 200px;
 	min-height: 300px;
 	margin: 0px;
 	padding: 0px 10px 0px 10px;
+}
+*:focus{
+	box-shadow: 0px 0px 15px gray;
+}
+footer{
+	position: relative;
+	top: 70px;
+	text-align: center;
+	color: grey;
+	font-size: 0.8em;
+	clear: both;
+	z-index: -1;
 }

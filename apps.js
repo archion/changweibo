@@ -9,7 +9,6 @@ function update(e){
 		value="'"+value+"'";
 	}
 	document.styleSheets[0].insertRule("#output::before{ content: "+value+"!important;}",document.styleSheets[0].cssRules.length);
-	var output=document.querySelector('#output');
 	output.style.border="solid 1px rgb(131, 131, 131)";
 	output.style.background="";
 	output.style.paddingLeft="10px";
@@ -42,6 +41,7 @@ var ta=document.querySelector("textarea");
 var bt=document.querySelector("#gn");
 var it=document.querySelector("input[type=text]")
 var ic=document.querySelector("input[type=checkbox]")
+var output=document.querySelector('#output');
 ta.addEventListener("keyup",update,false)
 ta.addEventListener("focus",update,false)
 ta.addEventListener("drop",update,false)
@@ -52,15 +52,16 @@ it.addEventListener("focus",update,false)
 it.addEventListener("drop",update,false)
 ic.addEventListener("change",update,false)
 bt.addEventListener("click",function(e){
-	document.querySelector('#output').style.border="none";
-	document.querySelector('#output').style.background="white";
-	html2canvas(document.querySelector('#output'),
+	output.style.border="none";
+	output.style.background="white";
+	html2canvas(output,
 			{
 				onrendered: function(c){
-					document.querySelector('#output').innerHTML='';
-					document.querySelector('#output').appendChild(c);
-					document.querySelector('#output').style.padding="0px";
-					document.querySelector('#output').style.maxWidth="420px";
+					document.styleSheets[0].insertRule("#output::before{ content: ''!important;}",document.styleSheets[0].cssRules.length);
+					output.innerHTML='';
+					output.appendChild(c);
+					output.style.padding="0px";
+					output.style.maxWidth="420px";
 					document.querySelector('#tip').style.visibility="visible";
 					document.querySelector('#tip').style.opacity="0.9";
 					setTimeout(function(){document.querySelector('#tip').style.opacity="0";document.querySelector('#tip').style.visibility="hidden";},2000);

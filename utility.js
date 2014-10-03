@@ -14,7 +14,7 @@ for (i=0;i<link.length;i++){
 //add back to top button
 var af=document.createElement("link");
 af.rel="stylesheet";
-af.href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css";
+af.href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css";
 document.head.appendChild(af);
 var tp=document.createElement("span");
 tp.className="fa fa-chevron-circle-up fa-2x top";
@@ -47,64 +47,3 @@ window.onscroll=function(){
 		document.querySelector("span.top").style.cursor="initial";
 	}
 }
-//textarea auto height
-var ta=document.querySelector("textarea.auto");
-ta.addEventListener("keyup",function(e){
-	//console.log(e.target)
-	var target=e.target;
-	//target.style.height=(target.scrollHeight-parseInt(window.getComputedStyle(target,null)["paddingTop"])-parseInt(window.getComputedStyle(target,null)["paddingBottom"]))+"px";
-	document.querySelector('#output').style.border="solid 1px rgb(131, 131, 131)";
-	document.querySelector('#output').style.background="";
-	document.querySelector('#output').style.paddingLeft="10px";
-	document.querySelector('#output').style.paddingRight="10px";
-	document.querySelector('#output').style.maxWidth="400px";
-	document.querySelector('#output').innerHTML = marked(document.querySelector("textarea.auto").value+"\n\n--------\n<p style='font-size: 0.7em'>本文由 archion.github.io/changweibo 在线生成<p>");
-	$('pre code').each(function(i, block) {
-		hljs.highlightBlock(block);
-	});
-	MathJax.Hub.Typeset()
-},false)
-ta.addEventListener("focus",function(e){
-	//console.log(e.target)
-	var target=e.target;
-	//target.style.height=(target.scrollHeight-parseInt(window.getComputedStyle(target,null)["paddingTop"])-parseInt(window.getComputedStyle(target,null)["paddingBottom"]))+"px";
-	document.querySelector('#output').style.border="solid 1px rgb(131, 131, 131)";
-	document.querySelector('#output').style.background="";
-	document.querySelector('#output').style.paddingLeft="10px";
-	document.querySelector('#output').style.paddingRight="10px";
-	document.querySelector('#output').style.maxWidth="400px";
-	document.querySelector('#output').innerHTML = marked(document.querySelector("textarea.auto").value+"\n\n--------\n<p style='font-size: 0.7em'>本文由 archion.github.io/changweibo 在线生成<p>");
-	$('pre code').each(function(i, block) {
-		hljs.highlightBlock(block);
-	});
-	MathJax.Hub.Typeset();
-},false)
-var bt=document.querySelector("#gn");
-bt.addEventListener("click",function(e){
-	document.querySelector('#output').style.border="none";
-	document.querySelector('#output').style.background="white";
-	html2canvas(document.querySelector('#output'),
-			{
-				onrendered: function(c){
-					document.querySelector('#output').innerHTML='';
-					document.querySelector('#output').appendChild(c);
-					document.querySelector('#output').style.padding="0px";
-					document.querySelector('#output').style.maxWidth="420px";
-					document.querySelector('#tip').style.visibility="visible";
-					document.querySelector('#tip').style.opacity="0.9";
-					setTimeout(function(){document.querySelector('#tip').style.opacity="0";document.querySelector('#tip').style.visibility="hidden";},2000);
-				},
-				allowTaint: true, 
-				taintTest: false,
-			}
-			);
-},false)
-ta.addEventListener("dragover", function(e) {
-	e.preventDefault();
-},false)
-ta.addEventListener("drop", function(e) {
-	e.preventDefault();
-	ta.value=ta.value.substring(0,ta.selectionStart)+window.URL.createObjectURL(e.dataTransfer.files[0])+ta.value.substring(ta.selectionEnd);
-},false)
-document.querySelector("textarea").focus()
-

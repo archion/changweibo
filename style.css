@@ -19,7 +19,7 @@ div#h1 {
 div#input{
 	position: fixed;
 	top: 70px;
-	height: 88%;
+	height: 86%;
 	margin: auto;
 	width: 40%;
 }
@@ -29,6 +29,7 @@ textarea{
 	resize: none;
 	/*height: 700px;*/
 	height: 100%;
+	box-shadow: 0px 0px 11px gray;
 }
 div#gn{
 	height: 100%;
@@ -51,6 +52,7 @@ div#gn:hover i{
 	word-wrap: break-word; 
 	word-break: normal;
 	position: absolute;
+	overflow: hidden;
 	border: solid 1px rgb(131, 131, 131);
 	top: 70px;
 	left: 41%;
@@ -100,4 +102,31 @@ code{
 	visibility:hidden;
 	opacity:0;
 	transition:visibility 0s linear 0.5s,opacity 0.5s linear;
+}
+#output::before {
+    content: "";
+	text-align: center;
+	font-size: 5em;
+    display: block;
+	margin: auto;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    opacity : 0.1;
+    z-index: 2;
+	transform: rotate(-60deg);
+}
+#control{
+	position: fixed;
+	overflow: hidden;
+	background: white;
+	border: solid 1px rgb(131, 131, 131);
+	box-shadow: 0px 0px 11px gray;
+	top: 70px;
+	right: 10%;
+	width: 200px;
+	min-height: 300px;
+	margin: 0px;
+	padding: 0px 10px 0px 10px;
 }

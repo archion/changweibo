@@ -44,6 +44,7 @@ var it=document.querySelector("input[type=text]")
 var ic=document.querySelector("input[type=checkbox]")
 ta.addEventListener("keyup",update,false)
 ta.addEventListener("focus",update,false)
+ta.addEventListener("drop",update,false)
 dropFile(ta,getURL);
 dropFile(it,getURL);
 it.addEventListener("keyup",update,false)

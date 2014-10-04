@@ -1,21 +1,30 @@
 function update(e){
 	var value=it.value;
-	if (value.search(/blob:/)>=0){
-		ic.checked=true;
-	}
-	if (ic.checked){
-		value="url("+value+")";
-	}else{
-		value="'"+value+"'";
-	}
 	document.querySelector("span#width").innerHTML=ir.value+"px"
-	document.styleSheets[0].insertRule("#output::before{ content: "+value+"!important;}",document.styleSheets[0].cssRules.length);
+	//document.styleSheets[0].insertRule("#output::after{ content: "+value+"!important;}",document.styleSheets[0].cssRules.length);
 	output.style.border="solid 1px rgb(131, 131, 131)";
 	output.style.background="";
 	output.style.paddingLeft="10px";
 	output.style.paddingRight="10px";
 	output.style.maxWidth=ir.value+"px";
 	output.innerHTML = marked(document.querySelector("textarea.auto").value+"\n\n--------\n<p style='font-size: 0.7em'>本文由 archion.github.io/changweibo 在线生成<p>");
+	var sy=document.createElement("div");
+	sy.id="sy"
+	if (value.search(/blob:/)>=0){
+		ic.checked=true;
+	}
+	if (ic.checked){
+		value="url("+value+")";
+		sy.style.backgroundImage=value;
+	}else{
+		sy.innerHTML=value;
+	}
+	sy.style.height=ir.value+"px";
+	sy.style.width="800px";
+	sy.style.lineHeight=ir.value+"px";
+	sy.style.top=parseInt(getComputedStyle(output,null).getPropertyValue("height"))/2+"px";
+	sy.style.transform="translateX(-"+parseInt(ir.value)/2+"px"+") translateY(-50%) rotate(-60deg)"
+	output.appendChild(sy);
 	hljs.highlightBlock(document.querySelector("pre code"));
 	MathJax.Hub.Typeset();
 }
@@ -58,7 +67,7 @@ bt.addEventListener("click",function(e){
 	html2canvas(output,
 			{
 				onrendered: function(c){
-					document.styleSheets[0].insertRule("#output::before{ content: ''!important;}",document.styleSheets[0].cssRules.length);
+					//document.styleSheets[0].insertRule("#output::after{ content: ''!important;}",document.styleSheets[0].cssRules.length);
 					output.innerHTML='';
 					output.appendChild(c);
 					output.style.padding="0px";

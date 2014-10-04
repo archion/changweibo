@@ -60,7 +60,7 @@ div#gn:hover i{
 	word-wrap: break-word; 
 	word-break: normal;
 	position: relative;
-	overflow: hidden;
+	/*overflow: hidden;*/
 	border: solid 1px rgb(131, 131, 131);
 	top: 70px;
 	left: 41%;
@@ -113,18 +113,27 @@ code{
 	transition:visibility 0s linear 0.5s,opacity 0.5s linear;
 	z-index: 11;
 }
-#output::before{
-    content: "";
+/*#output::after{*/
+    /*content: "";*/
+	/*text-align: center;*/
+	/*font-size: 5em;*/
+    /*display: inline;*/
+    /*position: relative;*/
+	/*top: 50%;*/
+	/*transform: translateY(-50%);*/
+	/*left: 50%;*/
+	/*transform: translateX(-50%);*/
+    /*opacity : 0.1;*/
+	/*[>transform: rotate(-60deg);<]*/
+/*}*/
+#sy{
 	text-align: center;
 	font-size: 5em;
-    display: block;
-	margin: auto;
-    position: absolute;
-    top: 50%;
-    left: 0;
-    width: 100%;
-    opacity : 0.1;
-	transform: rotate(-60deg);
+	display: inline;
+	position: absolute;
+	opacity : 0.1;
+	background-repeat: no-repeat;
+	background-position: 50% 50%;
 }
 #control{
 	position: fixed;
@@ -165,4 +174,7 @@ footer{
 	font-size: 0.8em;
 	clear: both;
 	z-index: -1;
+}
+a{
+	text-decoration: none;
 }

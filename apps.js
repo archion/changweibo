@@ -22,6 +22,7 @@ function update(e){
 	sy.style.height=ir.value+"px";
 	sy.style.width="800px";
 	sy.style.lineHeight=ir.value+"px";
+	sy.style.opacity=parseInt(io.value)/100.+"";
 	sy.style.top=parseInt(getComputedStyle(output,null).getPropertyValue("height"))/2+"px";
 	sy.style.transform="translateX(-"+(800-parseInt(ir.value))/2+"px"+") translateY(-50%) rotate(-60deg)"
 	output.appendChild(sy);
@@ -49,7 +50,8 @@ var ta=document.querySelector("textarea");
 var bt=document.querySelector("#gn");
 var it=document.querySelector("input[type=text]")
 var ic=document.querySelector("input[type=checkbox]")
-var ir=document.querySelector("input[type=range]")
+var io=document.querySelector("input[type=range]")
+var ir=document.querySelector("input[type=range]#wth")
 var output=document.querySelector('#output');
 ta.addEventListener("keyup",update,false)
 ta.addEventListener("focus",update,false)
@@ -61,6 +63,7 @@ it.addEventListener("focus",update,false)
 it.addEventListener("drop",update,false)
 ic.addEventListener("change",update,false)
 ir.addEventListener("input",update,false)
+io.addEventListener("input",update,false)
 bt.addEventListener("click",function(e){
 	output.style.border="none";
 	output.style.background="white";

@@ -131,7 +131,6 @@ code{
 	font-size: 5em;
 	display: inline;
 	position: absolute;
-	opacity : 0.1;
 	background-repeat: no-repeat;
 	background-position: 50% 50%;
 }
@@ -157,7 +156,7 @@ code{
 	border: 1px solid gray;
 }
 #control input[type=range]{
-	width: 170px;
+	width: 150px;
 }
 span#width{
 	font-size: 0.7em;

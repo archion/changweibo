@@ -72,7 +72,7 @@ div#gn:hover i{
 div.clear{
 	clear: both;
 }
-article img{
+article img:not(#outputURL){
 	display: block;
 	max-width: 90%;
 	margin: auto;

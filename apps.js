@@ -74,8 +74,10 @@ bt.addEventListener("click",function(e){
 			{
 				onrendered: function(c){
 					//document.styleSheets[0].insertRule("#output::after{ content: ''!important;}",document.styleSheets[0].cssRules.length);
-					output.innerHTML='';
-					output.appendChild(c);
+					//output.innerHTML='';
+					var dataURL = c.toDataURL();
+					output.innerHTML='<img id="outputURL" src='+c.toDataURL()+'>';
+					//output.appendChild(c);
 					output.style.padding="0px";
 					output.style.maxWidth=(parseInt(ir.value)+20)+"px";
 					document.querySelector('#tip').style.visibility="visible";
@@ -84,6 +86,7 @@ bt.addEventListener("click",function(e){
 				},
 				allowTaint: true, 
 				taintTest: false,
+				useCORS: true,
 			}
 			);
 },false)

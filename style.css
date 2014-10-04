@@ -6,7 +6,7 @@ html, body{
 h1 {
 	text-align: center;
 }
-div#h1 {
+div#h1{
 	background-color: #eee;
 	text-align: center;
 	position: fixed;
@@ -17,6 +17,37 @@ div#h1 {
 	line-height: 55px;
 	font-size: 2em;
 	z-index: 10;
+}
+#h1 span{
+	font-size: 0.5em;
+	border: 1px solid gray;
+	border-radius: 5px;
+	background: white;
+	cursor:pointer;
+}
+.angle{
+	position: absolute;
+	top: 45px;
+	left: 820px;
+	border-left: 10px solid rgba(255, 0, 0, 0);
+    border-bottom: 20px solid white;
+    border-right: 10px solid rgba(255, 0, 0, 0);
+	display:none;
+}
+#beta{
+	background-color: white;
+	z-index: 12;
+	position: absolute;
+	top: 60px;
+	width: 100%;
+	font-size: 0.4em;
+	display:none;
+}
+#h1:hover #beta{
+	display: block;
+}
+#h1:hover .angle {
+	display: block;
 }
 div#input{
 	position: fixed;

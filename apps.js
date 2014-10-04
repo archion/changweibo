@@ -23,7 +23,7 @@ function update(e){
 	sy.style.width="800px";
 	sy.style.lineHeight=ir.value+"px";
 	sy.style.top=parseInt(getComputedStyle(output,null).getPropertyValue("height"))/2+"px";
-	sy.style.transform="translateX(-"+parseInt(ir.value)/2+"px"+") translateY(-50%) rotate(-60deg)"
+	sy.style.transform="translateX(-"+(800-parseInt(ir.value))/2+"px"+") translateY(-50%) rotate(-60deg)"
 	output.appendChild(sy);
 	hljs.highlightBlock(document.querySelector("pre code"));
 	MathJax.Hub.Typeset();

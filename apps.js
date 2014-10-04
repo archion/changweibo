@@ -16,9 +16,7 @@ function update(e){
 	output.style.paddingRight="10px";
 	output.style.maxWidth=ir.value+"px";
 	output.innerHTML = marked(document.querySelector("textarea.auto").value+"\n\n--------\n<p style='font-size: 0.7em'>本文由 archion.github.io/changweibo 在线生成<p>");
-	$('pre code').each(function(i, block) {
-		hljs.highlightBlock(block);
-	});
+	hljs.highlightBlock(document.querySelector("pre code"));
 	MathJax.Hub.Typeset();
 }
 function dropFile(el,handler){

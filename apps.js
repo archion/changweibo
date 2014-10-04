@@ -4,8 +4,7 @@ function update(e){
 	//document.styleSheets[0].insertRule("#output::after{ content: "+value+"!important;}",document.styleSheets[0].cssRules.length);
 	output.style.border="solid 1px rgb(131, 131, 131)";
 	output.style.background="";
-	output.style.paddingLeft="10px";
-	output.style.paddingRight="10px";
+	output.style.padding="10px 10px 0px 10px";
 	output.style.maxWidth=ir.value+"px";
 	output.innerHTML = marked(document.querySelector("textarea.auto").value+"\n\n--------\n<p style='font-size: 0.7em'>本文由 archion.github.io/changweibo 在线生成<p>");
 	var sy=document.createElement("div");
@@ -31,6 +30,17 @@ function update(e){
 	output.appendChild(sy);
 	hljs.highlightBlock(document.querySelector("pre code"));
 	MathJax.Hub.Typeset();
+}
+function popup(msg){
+	var dv=document.createElement("div");
+	dv.setAttribute("style","position: fixed; top: 50%; transform: translateY(-50%); -ms-transform: translateY(-50%); -webkit-transform: translateY(-50%); -moz-transform: translateY(-50%); left: 50%; transform: translateX(-50%); -ms-transform: translateX(-50%); -webkit-transform: translateX(-50%); -moz-transform: translateX(-50%); padding: 10px; background: rgb(112, 112, 112); border-radius: 7px; font-size: 2em; text-align: center; visibility:visible; opacity:1; transition:visibility 0s linear 0.5s,opacity 0.5s linear; z-index: 11;");
+	dv.innerHTML=msg;
+	document.body.appendChild(dv);
+	//document.querySelector('#tip').style.visibility="visible";
+	//document.querySelector('#tip').style.opacity="0.9";
+	setTimeout(function(){dv.style.opacity="0";dv.style.visibility="hidden";},2000);
+	setTimeout(function(){document.body.removeChild(dv);},4000);
+	
 }
 function dropFile(el,handler){
 	el.addEventListener("dragover", function(e) {
@@ -75,14 +85,16 @@ bt.addEventListener("click",function(e){
 				onrendered: function(c){
 					//document.styleSheets[0].insertRule("#output::after{ content: ''!important;}",document.styleSheets[0].cssRules.length);
 					//output.innerHTML='';
-					var dataURL = c.toDataURL();
-					output.innerHTML='<img id="outputURL" src='+c.toDataURL()+'>';
+					try{
+						output.innerHTML='<img id="outputURL" src='+c.toDataURL()+'>';
+						popup("已转换为图片，请右击另存为保存！");
+					}catch(er){
+						popup("包含非本地图片，建议把网络图片保存为本地再插入！")
+						output.appendChild(c);
+					}
 					//output.appendChild(c);
 					output.style.padding="0px";
 					output.style.maxWidth=(parseInt(ir.value)+20)+"px";
-					document.querySelector('#tip').style.visibility="visible";
-					document.querySelector('#tip').style.opacity="0.9";
-					setTimeout(function(){document.querySelector('#tip').style.opacity="0";document.querySelector('#tip').style.visibility="hidden";},2000);
 				},
 				allowTaint: true, 
 				taintTest: false,

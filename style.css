@@ -20,21 +20,28 @@ div#h1 {
 }
 div#input{
 	position: fixed;
-	top: 70px;
-	height: 86%;
-	margin: auto;
+	height: calc(100% - 110px);
+	padding-top: 70px;
 	width: 40%;
+	z-index: 8;
+}
+#ta{
+	height: 100%;
+	padding-right: 75px;
 }
 textarea{
-	float: left;
-	width: 90%;
-	resize: none;
-	/*height: 700px;*/
+	width: 100%;
 	height: 100%;
+	padding:10px;
+	resize: none;
 }
 div#gn{
-	height: 100%;
-	float: right;
+	position: absolute;
+	right: 0px;
+	top: 70px;
+	height: calc(100% - 70px);
+	padding: 3px;
+	width: 40px;
 	cursor: pointer;
 }
 .center{
@@ -60,6 +67,7 @@ div#gn:hover i{
 	max-width: 400px;
 	margin: 0px;
 	padding: 0px 10px 0px 10px;
+	z-index: 2;
 }
 div.clear{
 	clear: both;
@@ -90,19 +98,20 @@ code{
 	background: #fdf6e3;
 }
 #tip{
-	position: absolute;
+	position: fixed;
 	top: 50%;
+	transform: translateY(-50%);
 	left: 50%;
-	height: 50px;  margin-top: -50px;
-	width: 550px;  margin-left: -275px;
+	transform: translateX(-50%);
+	padding: 10px;
 	background: rgb(112, 112, 112);
 	border-radius: 7px;
-	line-height: 50px;
 	font-size: 2em;
 	text-align: center;
 	visibility:hidden;
 	opacity:0;
 	transition:visibility 0s linear 0.5s,opacity 0.5s linear;
+	z-index: 11;
 }
 #output::before{
     content: "";
@@ -122,14 +131,30 @@ code{
 	overflow: hidden;
 	background: white;
 	border: solid 1px rgb(131, 131, 131);
-	top: 70px;
+	top: 80px;
 	right: 20px;
-	width: 200px;
+	width: 250px;
 	min-height: 300px;
 	margin: 0px;
 	padding: 0px 10px 0px 10px;
+	z-index: 1;
 }
-*:focus{
+#control input[type=checkbox]{
+	border-radius: 5px;
+}
+#control input[type=text]{
+	width: 150px;
+	border-radius: 5px;
+	border: 1px solid gray;
+}
+#control input[type=range]{
+	width: 170px;
+}
+span#width{
+	font-size: 0.7em;
+	color: gray;
+}
+*:focus:not([type=range]){
 	box-shadow: 0px 0px 15px gray;
 }
 footer{

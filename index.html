@@ -30,7 +30,8 @@ MathJax.Hub.Config({
 <body>
 	<div id="h1">长微博在线生成</div>
 	<div id="input">
-		<textarea id="" name="输入长微博内容" class="auto" style="">
+		<div id="ta">
+			<textarea id="" name="" class="auto" style="">
 #长微博生成指南
 使用Markdown语法，支持LaTex公式和代码高亮，并且支持本地图片，如需使用本地图片直接拖拽入输入框即可。
 
@@ -76,15 +77,21 @@ __加粗__, *斜体*，~~删除~~
 ------------- | -------------
 单元格内容  | 单元格内容
 单元格内容  | 单元格内容
-		</textarea>
+			</textarea>
+		</div>
 		<div id="gn">
 			<i class="fa fa-angle-double-right fa-4x center"></i>
 		</div>
 	</div>
 	<article id="output" class="resizable"></article>
 	<div id="control">
-		水印: 图片<input type="checkbox"></br>
-		<input type="text" value="水印">
+		<p><i class="fa fa-cog"></i> 高级设置</p>
+		<hr>
+		图片水印<input type="checkbox"><input type="text" value="输入文字或拽入图片"></br>
+		<!--背景颜色-->
+		<!--<input type="color" value="#ffffff"></br>-->
+		宽度
+		<input type="range" min="200" max="700" value="400"><span id="width"></span></br>
 	</div>
 	<div id="tip">
 		已转换为图片，请右击另存为保存！

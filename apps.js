@@ -8,12 +8,13 @@ function update(e){
 	}else{
 		value="'"+value+"'";
 	}
+	document.querySelector("span#width").innerHTML=ir.value+"px"
 	document.styleSheets[0].insertRule("#output::before{ content: "+value+"!important;}",document.styleSheets[0].cssRules.length);
 	output.style.border="solid 1px rgb(131, 131, 131)";
 	output.style.background="";
 	output.style.paddingLeft="10px";
 	output.style.paddingRight="10px";
-	output.style.maxWidth="400px";
+	output.style.maxWidth=ir.value+"px";
 	output.innerHTML = marked(document.querySelector("textarea.auto").value+"\n\n--------\n<p style='font-size: 0.7em'>本文由 archion.github.io/changweibo 在线生成<p>");
 	$('pre code').each(function(i, block) {
 		hljs.highlightBlock(block);
@@ -41,6 +42,7 @@ var ta=document.querySelector("textarea");
 var bt=document.querySelector("#gn");
 var it=document.querySelector("input[type=text]")
 var ic=document.querySelector("input[type=checkbox]")
+var ir=document.querySelector("input[type=range]")
 var output=document.querySelector('#output');
 ta.addEventListener("keyup",update,false)
 ta.addEventListener("focus",update,false)
@@ -51,6 +53,7 @@ it.addEventListener("keyup",update,false)
 it.addEventListener("focus",update,false)
 it.addEventListener("drop",update,false)
 ic.addEventListener("change",update,false)
+ir.addEventListener("input",update,false)
 bt.addEventListener("click",function(e){
 	output.style.border="none";
 	output.style.background="white";
@@ -61,7 +64,7 @@ bt.addEventListener("click",function(e){
 					output.innerHTML='';
 					output.appendChild(c);
 					output.style.padding="0px";
-					output.style.maxWidth="420px";
+					output.style.maxWidth=(parseInt(ir.value)+20)+"px";
 					document.querySelector('#tip').style.visibility="visible";
 					document.querySelector('#tip').style.opacity="0.9";
 					setTimeout(function(){document.querySelector('#tip').style.opacity="0";document.querySelector('#tip').style.visibility="hidden";},2000);

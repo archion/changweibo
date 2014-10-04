@@ -31,15 +31,15 @@ function update(e){
 	hljs.highlightBlock(document.querySelector("pre code"));
 	MathJax.Hub.Typeset();
 }
-function popup(msg){
+function popup(msg,s){
 	var dv=document.createElement("div");
 	dv.setAttribute("style","position: fixed; top: 50%; transform: translateY(-50%); -ms-transform: translateY(-50%); -webkit-transform: translateY(-50%); -moz-transform: translateY(-50%); left: 50%; transform: translateX(-50%); -ms-transform: translateX(-50%); -webkit-transform: translateX(-50%); -moz-transform: translateX(-50%); padding: 10px; background: rgb(112, 112, 112); border-radius: 7px; font-size: 2em; text-align: center; visibility:visible; opacity:1; transition:visibility 0s linear 0.5s,opacity 0.5s linear; z-index: 11;");
 	dv.innerHTML=msg;
 	document.body.appendChild(dv);
 	//document.querySelector('#tip').style.visibility="visible";
 	//document.querySelector('#tip').style.opacity="0.9";
-	setTimeout(function(){dv.style.opacity="0";dv.style.visibility="hidden";},2000);
-	setTimeout(function(){document.body.removeChild(dv);},4000);
+	setTimeout(function(){dv.style.opacity="0";dv.style.visibility="hidden";},s*1000);
+	setTimeout(function(){document.body.removeChild(dv);},s*1000+2000);
 	
 }
 function dropFile(el,handler){
@@ -87,13 +87,12 @@ bt.addEventListener("click",function(e){
 					//output.innerHTML='';
 					try{
 						output.innerHTML='<img id="outputURL" src='+c.toDataURL()+'>';
-						popup("已转换为图片，请右击另存为保存！");
+						popup("已转换为图片，请右击另存为保存！",2);
 					}catch(er){
-						popup("包含非本地图片，如无法保存，请把网络图片保存为本地再插入！")
+						popup("包含非本地图片，如无法保存，请把网络图片保存为本地再插入！",4)
 						output.innerHTML='';
 						output.appendChild(c);
 					}
-					//output.appendChild(c);
 					output.style.padding="0px";
 					output.style.maxWidth=(parseInt(ir.value)+20)+"px";
 				},

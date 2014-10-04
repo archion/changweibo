@@ -25,6 +25,9 @@ function update(e){
 	sy.style.opacity=parseInt(io.value)/100.+"";
 	sy.style.top=parseInt(getComputedStyle(output,null).getPropertyValue("height"))/2+"px";
 	sy.style.transform="translateX(-"+(800-parseInt(ir.value))/2+"px"+") translateY(-50%) rotate(-60deg)"
+	sy.style.webkitTransform="translateX(-"+(800-parseInt(ir.value))/2+"px"+") translateY(-50%) rotate(-60deg)"
+	sy.style.msTransform="translateX(-"+(800-parseInt(ir.value))/2+"px"+") translateY(-50%) rotate(-60deg)"
+	sy.style.mozTransform="translateX(-"+(800-parseInt(ir.value))/2+"px"+") translateY(-50%) rotate(-60deg)"
 	output.appendChild(sy);
 	hljs.highlightBlock(document.querySelector("pre code"));
 	MathJax.Hub.Typeset();

@@ -87,7 +87,7 @@ bt.addEventListener("click",function(e){
 					//output.innerHTML='';
 					try{
 						output.innerHTML='<img id="outputURL" src='+c.toDataURL()+'>';
-						popup("已转换为图片，请右击另存为保存！",2);
+						popup("已转换为图片，请右击“另存为”保存！",2);
 					}catch(er){
 						popup("包含非本地图片，如无法保存，请把网络图片保存为本地再插入！",5)
 						output.innerHTML='';

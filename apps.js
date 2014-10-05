@@ -33,7 +33,7 @@ function update(e){
 }
 function popup(msg,s){
 	var dv=document.createElement("div");
-	dv.setAttribute("style","position: fixed; top: 50%; transform: translateY(-50%); -ms-transform: translateY(-50%); -webkit-transform: translateY(-50%); -moz-transform: translateY(-50%); left: 50%; transform: translateX(-50%); -ms-transform: translateX(-50%); -webkit-transform: translateX(-50%); -moz-transform: translateX(-50%); padding: 10px; background: rgb(112, 112, 112); border-radius: 7px; font-size: 2em; text-align: center; visibility:visible; opacity:1; transition:visibility 0s linear 0.5s,opacity 0.5s linear; z-index: 11;");
+	dv.setAttribute("style","position: fixed; top: 50%; transform: translateY(-50%); -ms-transform: translateY(-50%); -webkit-transform: translateY(-50%); -moz-transform: translateY(-50%); left: 50%; transform: translateX(-50%); -ms-transform: translateX(-50%); -webkit-transform: translateX(-50%); -moz-transform: translateX(-50%); padding: 10px; background-color: rgba(0, 0, 0, 0.5); color: white; border-radius: 7px; font-size: 2em; text-align: center; visibility:visible; opacity:1; transition:visibility 0s linear 0.5s,opacity 0.5s linear; z-index: 11;");
 	dv.innerHTML=msg;
 	document.body.appendChild(dv);
 	//document.querySelector('#tip').style.visibility="visible";
